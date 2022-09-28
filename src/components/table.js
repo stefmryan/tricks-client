@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./card";
 
-const Table = () => {
+const Table = ({ playerObjs }) => {
+  const [players] = useState(playerObjs);
   return (
-    <div>
-      <Card />
+    <div id='container'>
+      {players.map((el, index) => {
+        return (
+          <div key={index}>
+            <Card />
+          </div>
+        );
+      })}
     </div>
   );
 };
