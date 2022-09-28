@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PlayerHand from "./playerHand";
-import Card from "./card";
+import Kitty from "./kitty";
 
 const Table = ({ playerObjs }) => {
   //TODO: update round so we can keep track of what
@@ -16,7 +16,7 @@ const Table = ({ playerObjs }) => {
         );
       })}
       <div id='kitty'>
-        <Card isFront={false} />
+        <Kitty />
       </div>
     </div>
   );

@@ -3,10 +3,11 @@ import Card from "./card";
 
 const PlayerHand = ({ round }) => {
   const [rounds] = useState(round);
+  const [, setPlayerHand] = useState([]);
   console.log(rounds);
   return (
     <div>
-      <Card isFront={true} />
+      <Card isFront={true} setPlayerHand={setPlayerHand} />
     </div>
   );
 };

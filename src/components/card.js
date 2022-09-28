@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import deckOfCard from "../utils/deckOfCards";
 
-const Card = ({ isFront }) => {
+const Card = ({ isFront, setPlayerHand }) => {
   const [frontFacing] = useState(isFront);
   const randomIndex = Math.floor(Math.random() * deckOfCard.length);
+  useEffect(() => {
+    setPlayerHand([randomIndex]);
+  }, []);
 
+  const cardClicked = () => {
+    console.log("clicked");
+  };
   return (
-    <div>
+    <div onClick={() => cardClicked()}>
       {frontFacing ? (
         <img
           src={`./images/cards/face/${deckOfCard[randomIndex].image}`}
