@@ -8,11 +8,13 @@ const Card = ({ isFront, setPlayerHand }) => {
     setPlayerHand([randomIndex]);
   }, []);
 
-  const cardClicked = () => {
+  const cardClicked = (e) => {
     console.log("clicked");
+    const targ = e.target.src;
+    console.log(targ);
   };
   return (
-    <div onClick={() => cardClicked()}>
+    <div onClick={(e) => cardClicked(e)}>
       {frontFacing ? (
         <img
           src={`./images/cards/face/${deckOfCard[randomIndex].image}`}
