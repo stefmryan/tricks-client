@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "./card";
 
 const Kitty = () => {
-  const [cards, setCards] = useState([
+  const [, /*cards*/ setCards] = useState([
     {
       suit: "",
       face: "",
@@ -10,7 +10,7 @@ const Kitty = () => {
       image: "red2.png",
     },
   ]);
-  console.log(cards);
+  // console.log(cards);
   return (
     <div>
       <Card isFront={false} setPlayerHand={setCards} />

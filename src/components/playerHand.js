@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Card from "./card";
 
-const PlayerHand = ({ round }) => {
-  const [rounds] = useState(round);
+const PlayerHand = (/*{ round }*/) => {
+  //const [rounds] = useState(round);
   const [, setPlayerHand] = useState([]);
-  console.log(rounds);
+  //console.log(rounds);
   return (
     <div>
       <Card isFront={true} setPlayerHand={setPlayerHand} />
