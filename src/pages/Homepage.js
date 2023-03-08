@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const [, setPlayers] = useState([]);
   const navigate = useNavigate();
-  const navigateTo = (e) => {
+
+  const playAloneButtonClicked = () => {
+    setPlayers([1]);
+    navigate("/game", { state: { players: [1] } });
+
+    /*const navigateTo = (e) => {
     let value = parseInt(e.target.value);
     let newArr = [];
     for (let i = 0; i < value; i++) {
       let player = `player${i + 1}`;
       newArr.push(player);
     }
-    navigate("/game", { state: { players: newArr } });
+    navigate("/game", { state: { players: newArr } });*/
   };
   return (
     <div>
-      <button type='button' value='3' onClick={(e) => navigateTo(e)}>
-        3 player game
+      <button type='button' onClick={playAloneButtonClicked}>
+        Play Single Player
       </button>
+      <button type='button'>Play Multiplayer</button>
     </div>
   );
 };

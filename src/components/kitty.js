@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "./card";
+import Card from "./Card/card";
 
 const Kitty = () => {
   const [, /*cards*/ setCards] = useState([
@@ -10,9 +10,9 @@ const Kitty = () => {
       image: "red2.png",
     },
   ]);
-  // console.log(cards);
   return (
     <div>
+      Kitty
       <Card isFront={false} setPlayerHand={setCards} />
     </div>
   );

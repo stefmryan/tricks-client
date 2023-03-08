@@ -4,12 +4,17 @@ import { useLocation } from "react-router-dom";
 
 const GamePage = () => {
   const location = useLocation();
-  const playerObj = location.state.players;
-  const [players] = useState(playerObj);
+  let [players] = useState([location.state.players]);
 
   return (
     <div>
-      <Table playerObjs={players} />
+      <Table
+        playerObjs={
+          location.state.players[0] === 1
+            ? (players[0] = ["player", "opponent1", "opponent2"])
+            : (players[0] = location.state.players)
+        }
+      />
     </div>
   );
 };
