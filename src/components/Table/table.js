@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import PlayerHand from "../PlayerHand/playerHand";
 import Kitty from "../kitty";
-import styles from "../Card/card.module.css";
+import styles from "../Table/table.module.css";
 
 const Table = ({ playerObjs }) => {
   //TODO: update round so we can keep track of what
   //round of cards the users are playing.
   const [players] = useState(playerObjs);
   return (
-    <div>
+    <div className={styles.grid}>
       {players.map((el, index) => {
         return (
           <div key={index}>
-            {el}
-            <PlayerHand round={1} />
+            <PlayerHand round={1} name={el} />
           </div>
         );
       })}

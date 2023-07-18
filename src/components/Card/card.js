@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import styles from "../Card/card.module.css";
 import deckOfCard from "../../utils/deckOfCards";
 
 const Card = ({ isFront, setPlayerHand }) => {
@@ -15,7 +15,7 @@ const Card = ({ isFront, setPlayerHand }) => {
     console.log(targ);
   };
   return (
-    <div onClick={(e) => cardClicked(e)}>
+    <div className={styles.container} onClick={(e) => cardClicked(e)}>
       {frontFacing ? (
         <img
           src={`./images/cards/face/${deckOfCard[randomIndex].image}`}

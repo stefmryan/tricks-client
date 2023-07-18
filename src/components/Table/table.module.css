@@ -1,16 +1,5 @@
-.container {
-  position: relative;
-}
-
-.bottomright {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  font-size: 18px;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  opacity: 0.3;
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #ffa500;
 }
