@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import Table from "../components/table";
+import Table from "../components/Table/table";
 import { useLocation } from "react-router-dom";
+import styles from "../pages/Gamepage.module.css";
 
 const GamePage = () => {
   const location = useLocation();
   let [players] = useState([location.state.players]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <Table
         playerObjs={
           location.state.players[0] === 1

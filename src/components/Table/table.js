@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import PlayerHand from "./playerHand";
-import Kitty from "./kitty";
-import styles from "../components/Card/card.module.css";
+import PlayerHand from "../PlayerHand/playerHand";
+import Kitty from "../kitty";
+import styles from "../Card/card.module.css";
 
 const Table = ({ playerObjs }) => {
   //TODO: update round so we can keep track of what
   //round of cards the users are playing.
   const [players] = useState(playerObjs);
   return (
-    <div className={styles.container}>
+    <div>
       {players.map((el, index) => {
         return (
           <div key={index}>
