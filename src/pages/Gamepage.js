@@ -12,7 +12,7 @@ const GamePage = () => {
       <Table
         playerObjs={
           location.state.players[0] === 1
-            ? (players[0] = ["player", "opponent1", "opponent2"])
+            ? (players[0] = ["player", "opponent1", "opponent2", "opponent3"])
             : (players[0] = location.state.players)
         }
       />

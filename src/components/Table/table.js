@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PlayerHand from "../PlayerHand/playerHand";
-import Kitty from "../kitty";
 import styles from "../Table/table.module.css";
 
 const Table = ({ playerObjs }) => {
@@ -9,15 +8,18 @@ const Table = ({ playerObjs }) => {
   const [players] = useState(playerObjs);
   return (
     <div className={styles.grid}>
-      {players.map((el, index) => {
-        return (
-          <div key={index}>
-            <PlayerHand round={1} name={el} />
-          </div>
-        );
-      })}
-      <div id={styles.kitty}>
-        <Kitty />
+      <div className={styles.grid_item1}>
+        <PlayerHand round={1} name={players[1]} />
+      </div>{" "}
+      <div>
+        <PlayerHand round={1} name={players[2]} />
+      </div>
+      <div>Kitty</div>
+      <div>
+        <PlayerHand round={1} name={players[3]} />
+      </div>
+      <div className={styles.grid_item1}>
+        <PlayerHand round={1} name={players[0]} />
       </div>
     </div>
   );
