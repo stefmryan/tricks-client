@@ -9,6 +9,47 @@ const GamePage = () => {
 
   return (
     <div className={styles.container}>
+      <table className={styles.table_container}>
+        <tr>
+          <th></th>
+          <th>
+            <table>
+              <th>Player</th>
+              <tr>
+                <th>tricks said</th>
+                <th>tricks played</th>
+              </tr>
+            </table>
+          </th>
+          <th>
+            <table>
+              <th>Opponent 1</th>
+              <tr>
+                <th>tricks said</th>
+                <th>tricks played</th>
+              </tr>
+            </table>
+          </th>
+          <th>
+            <table>
+              <th>Opponent 2</th>
+              <tr>
+                <th>tricks said</th>
+                <th>tricks played</th>
+              </tr>
+            </table>
+          </th>
+          <th>
+            <table>
+              <th>Opponent 3</th>
+              <tr>
+                <th>tricks said</th>
+                <th>tricks played</th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
       <Table
         playerObjs={
           location.state.players[0] === 1
