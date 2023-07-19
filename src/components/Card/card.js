@@ -20,6 +20,8 @@ const Card = ({ isFront, setPlayerHand }) => {
         <img
           src={`./images/cards/face/${deckOfCard[randomIndex].image}`}
           alt='face'
+          width={150}
+          height={200}
           draggable
         />
       ) : (

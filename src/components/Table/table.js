@@ -14,7 +14,7 @@ const Table = ({ playerObjs }) => {
       <div>
         <PlayerHand round={1} name={players[2]} />
       </div>
-      <div>Kitty</div>
+      <div id={styles.kitty}>Kitty</div>
       <div>
         <PlayerHand round={1} name={players[3]} />
       </div>

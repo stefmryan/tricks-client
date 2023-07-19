@@ -1,9 +1,13 @@
 .grid {
   display: grid;
   /*grid-template-columns: auto auto auto;*/
-  background-color: #ffa500;
+  background-color: #00512c;
   justify-content: space-evenly;
 }
 .grid_item1 {
   grid-column: 1 / 4;
+}
+
+#kitty {
+  margin: 100px;
 }

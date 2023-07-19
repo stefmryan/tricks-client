@@ -1,9 +1,4 @@
-#kitty {
-  border: black;
-  border-style: solid;
-}
-
-/*.container {
+.container {
   height: auto;
   width: auto;
-}*/
+}

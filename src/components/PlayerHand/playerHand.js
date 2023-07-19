@@ -6,11 +6,10 @@ const PlayerHand = (/*{ round }*/ { name }) => {
   //const [rounds] = useState(round);
   const [, setPlayerHand] = useState([]);
   return (
-    <div>
+    <div className={styles.container}>
       {name}
-      <div className={styles.container}>
-        <Card isFront={true} setPlayerHand={setPlayerHand} />
-      </div>
+
+      <Card isFront={true} setPlayerHand={setPlayerHand} />
     </div>
   );
 };
