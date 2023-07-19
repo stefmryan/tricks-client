@@ -9,20 +9,18 @@ const Card = ({ isFront, setPlayerHand }) => {
     setPlayerHand([randomIndex]);
   }, []);
 
-  const cardClicked = (e) => {
+  const cardClicked = () => {
     console.log("clicked");
-    const targ = e.target.src;
-    console.log(targ);
   };
   return (
-    <div className={styles.container} onClick={(e) => cardClicked(e)}>
+    <div className={styles.container}>
       {frontFacing ? (
         <img
           src={`./images/cards/face/${deckOfCard[randomIndex].image}`}
           alt='face'
           width={150}
           height={200}
-          draggable
+          onDoubleClick={(e) => cardClicked(e)}
         />
       ) : (
         <img src={`./images/cards/back/red2.png`} alt='face' />
