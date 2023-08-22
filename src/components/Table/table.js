@@ -3,8 +3,6 @@ import PlayerHand from "../PlayerHand/playerHand";
 import styles from "../Table/table.module.css";
 
 const Table = ({ playerObjs }) => {
-  //TODO: update round so we can keep track of what
-  //round of cards the users are playing.
   const [players] = useState(playerObjs);
   return (
     <div className={styles.grid}>
