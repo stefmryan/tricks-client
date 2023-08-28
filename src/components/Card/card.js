@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../Card/card.module.css";
 import deckOfCard from "../../utils/deckOfCards";
 
-const Card = ({ isFront, setPlayerHand, isOpponent, playerHand }) => {
+const Card = ({ isFront, setPlayerHand, isOpponent, playerHand, setKitty }) => {
   const [frontFacing] = useState(isFront);
   const [, SetClicked] = useState(false);
   const randomIndex = Math.floor(Math.random() * deckOfCard.length);
@@ -15,6 +15,7 @@ const Card = ({ isFront, setPlayerHand, isOpponent, playerHand }) => {
     console.log(id);
     console.log(playerHand);
     SetClicked(true);
+    setKitty([id]);
   };
   return (
     <div className={styles.container}>
