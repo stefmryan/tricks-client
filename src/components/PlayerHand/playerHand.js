@@ -9,7 +9,6 @@ const PlayerHand = ({ name, setKitty, kitty }) => {
     <div className={styles.container}>
       {name}
       <Card
-        isFront={true}
         setPlayerHand={setPlayerHand}
         playerHand={playerHand}
         isOpponent={isOpponent}
