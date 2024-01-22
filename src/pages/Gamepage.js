@@ -3,12 +3,13 @@ import Table from "../components/Table/table";
 import { useLocation } from "react-router-dom";
 import styles from "../pages/Gamepage.module.css";
 import deckOfCard from "../utils/deckOfCards";
+import { shuffle } from "../utils/gameLogic";
 
 const GamePage = () => {
   const location = useLocation();
   let [players] = useState([location.state.players]);
   const [round /*setRound*/] = useState(0);
-  const [deckofCards /*setDeckOfCards*/] = useState([...deckOfCard]);
+  const [deckofCards /*setDeckOfCards*/] = useState([...shuffle(deckOfCard)]);
 
   return (
     <div>
