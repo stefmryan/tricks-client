@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "../Card/card.module.css";
 import deckOfCard from "../../utils/deckOfCards";
 
-const Card = ({ setPlayerHand, isOpponent, playerHand, setKitty, kitty }) => {
+const Card = ({
+  setPlayerHand,
+  isOpponent,
+  playerHand,
+  setKitty,
+  kitty,
+  hand,
+}) => {
   const [visible, setVisible] = useState(true);
   const randomIndex = Math.floor(Math.random() * deckOfCard.length);
   useEffect(() => {
@@ -18,8 +25,7 @@ const Card = ({ setPlayerHand, isOpponent, playerHand, setKitty, kitty }) => {
     <div className={styles.container}>
       {visible && (
         <img
-          id={Number(playerHand)}
-          src={`./images/cards/face/${deckOfCard[Number(playerHand)].image}`}
+          src={`./images/cards/face/${hand.image}`}
           alt='face'
           width={150}
           height={200}
