@@ -24,8 +24,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[1]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={deckofCards[0]}
-          player1Hand={player1Hand}
+          hand={player1Hand}
           deckofCards={deckofCards}
         />
       </div>{" "}
@@ -36,7 +35,6 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[1]}
-          player1Hand={player1Hand}
           trumpCard={trumpCard}
         />
       </div>
@@ -71,7 +69,6 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[2]}
-          player1Hand={player1Hand}
           trumpCard={trumpCard}
         />
       </div>
@@ -82,7 +79,6 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[3]}
-          player1Hand={player1Hand}
           trumpCard={trumpCard}
         />
       </div>
