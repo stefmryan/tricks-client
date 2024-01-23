@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../Card/card.module.css";
-import deckOfCard from "../../utils/deckOfCards";
+//import deckOfCard from "../../utils/deckOfCards";
 
 const Card = ({
-  setPlayerHand,
+  //setPlayerHand,
   isOpponent,
-  playerHand,
+  //playerHand,
   setKitty,
   kitty,
   hand,
 }) => {
   const [visible, setVisible] = useState(true);
-  const randomIndex = Math.floor(Math.random() * deckOfCard.length);
-  useEffect(() => {
-    setPlayerHand([...playerHand, randomIndex]);
-  }, []);
+  //const randomIndex = Math.floor(Math.random() * deckOfCard.length);
+  // useEffect(() => {
+  //   setPlayerHand([...playerHand, randomIndex]);
+  // }, []);
 
   const cardClicked = (e) => {
     const id = e.target.id;
