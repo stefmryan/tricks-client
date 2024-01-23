@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PlayerHand from "../PlayerHand/playerHand";
 import deckOfCard from "../../utils/deckOfCards";
 import styles from "../Table/table.module.css";
@@ -7,35 +7,26 @@ import Card from "../Card/card";
 const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
-  const [player1Hand, setPlayer1Hand] = useState([]);
+  const [player1Hand] = useState([deckofCards[1], deckofCards[3]]);
   const [trumpCard /*setTrumpCard*/] = useState([deckofCards.pop()]);
-
-  useEffect(() => {
-    const amountOfCardsForRound = round * 4;
-    const cardsForTheRound = deckofCards.slice(0, amountOfCardsForRound);
-    setPlayer1Hand([...cardsForTheRound.slice(0, round)]);
-  }, []);
+  console.log(round);
 
   return (
     <div className={styles.grid}>
       <div className={styles.grid_item1}>
         <PlayerHand
-          round={1}
           name={players[1]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={player1Hand}
-          deckofCards={deckofCards}
+          hand={player1Hand[0]}
         />
       </div>{" "}
       <div>
         <PlayerHand
-          round={1}
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[1]}
-          trumpCard={trumpCard}
         />
       </div>
       <div id={styles.kitty}>
@@ -64,22 +55,18 @@ const Table = ({ playerObjs, deckofCards, round }) => {
       </div>
       <div>
         <PlayerHand
-          round={1}
           name={players[3]}
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[2]}
-          trumpCard={trumpCard}
         />
       </div>
       <div className={styles.grid_item1}>
         <PlayerHand
-          round={1}
           name={players[0]}
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[3]}
-          trumpCard={trumpCard}
         />
       </div>
     </div>
