@@ -7,7 +7,7 @@ import Card from "../Card/card";
 const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
-  const [player1Hand] = useState([]);
+  const [player1Hand] = useState([deckOfCard[0]]);
   const [trumpCard /*setTrumpCard*/] = useState([deckofCards.pop()]);
   console.log(round);
 

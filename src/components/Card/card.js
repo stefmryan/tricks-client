@@ -12,13 +12,15 @@ const Card = ({ isOpponent, setKitty, kitty, card }) => {
   };
   return (
     <div className={styles.container}>
-      <img
-        src={`./images/cards/face/${card.image}`}
-        alt='face'
-        width={150}
-        height={200}
-        onClick={!isOpponent ? (e) => cardClicked(e) : null}
-      />
+      {card !== undefined && (
+        <img
+          src={`./images/cards/face/${card.image}`}
+          alt='face'
+          width={150}
+          height={200}
+          onClick={!isOpponent ? (e) => cardClicked(e) : null}
+        />
+      )}
     </div>
   );
 };
