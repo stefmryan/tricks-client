@@ -18,7 +18,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[1]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={player1Hand[0]}
+          hand={player1Hand}
         />
       </div>{" "}
       <div>
@@ -26,7 +26,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={deckofCards[1]}
+          hhand={player1Hand}
         />
       </div>
       <div id={styles.kitty}>
@@ -48,7 +48,6 @@ const Table = ({ playerObjs, deckofCards, round }) => {
             setKitty={setKitty}
             kitty={kitty}
             hand={trumpCard[0]}
-            player1Hand={player1Hand}
             isOpponent={false}
           />
         </div>
@@ -58,7 +57,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[3]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={deckofCards[2]}
+          hand={player1Hand}
         />
       </div>
       <div className={styles.grid_item1}>
@@ -66,7 +65,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[0]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={deckofCards[3]}
+          hand={player1Hand}
         />
       </div>
     </div>
