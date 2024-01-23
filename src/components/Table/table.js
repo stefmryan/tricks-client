@@ -7,10 +7,12 @@ const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
   const [player1Hand, setPlayer1Hand] = useState([]);
+  const [trumpCard, setTrumpCard] = useState([]);
 
   useEffect(() => {
     const amountOfCardsForRound = round * 4;
     const cardsForTheRound = deckofCards.slice(0, amountOfCardsForRound + 1);
+    setTrumpCard([cardsForTheRound.pop()]);
 
     setPlayer1Hand([...cardsForTheRound]);
   }, []);
@@ -25,6 +27,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           kitty={kitty}
           hand={deckofCards[0]}
           player1Hand={player1Hand}
+          trumpCard={trumpCard}
         />
       </div>{" "}
       <div>
