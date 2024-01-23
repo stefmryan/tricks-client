@@ -5,6 +5,7 @@ import styles from "../PlayerHand/playerHand.module.css";
 const PlayerHand = ({ name, setKitty, kitty, hand, player1Hand }) => {
   const [playerHand, setPlayerHand] = useState([]);
   const [isOpponent] = useState(name !== "player");
+
   return (
     <div className={styles.container}>
       {name}
