@@ -3,13 +3,16 @@ import PlayerHand from "../PlayerHand/playerHand";
 import deckOfCard from "../../utils/deckOfCards";
 import styles from "../Table/table.module.css";
 
-const Table = ({ playerObjs, deckofCards }) => {
+const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
+  const [player1Hand, setPlayer1Hand] = useState([]);
 
-  //const [playerhand, setPlayerHand] = useState([]);
   useEffect(() => {
-    //console.log(deckOfCards);
+    const amountOfCardsForRound = round * 4;
+    const cardsForTheRound = deckofCards.slice(0, amountOfCardsForRound + 1);
+
+    setPlayer1Hand([...cardsForTheRound]);
   }, []);
   console.log(deckofCards);
   return (
@@ -21,6 +24,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           setKitty={setKitty}
           kitty={kitty}
           hand={deckofCards[0]}
+          player1Hand={player1Hand}
         />
       </div>{" "}
       <div>

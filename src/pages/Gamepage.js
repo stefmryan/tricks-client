@@ -8,7 +8,7 @@ import { shuffle } from "../utils/gameLogic";
 const GamePage = () => {
   const location = useLocation();
   let [players] = useState([location.state.players]);
-  const [round /*setRound*/] = useState(0);
+  const [round /*setRound*/] = useState(1);
   const [deckofCards /*setDeckOfCards*/] = useState([...shuffle(deckOfCard)]);
 
   return (
@@ -23,6 +23,7 @@ const GamePage = () => {
               : (players[0] = location.state.players)
           }
           deckofCards={deckofCards}
+          round={round}
         />
       </div>
     </div>
