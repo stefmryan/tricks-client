@@ -8,12 +8,14 @@ const PlayerHand = ({ name, setKitty, kitty, hand }) => {
   return (
     <div className={styles.container}>
       {name}
-      <Card
-        isOpponent={isOpponent}
-        setKitty={setKitty}
-        kitty={kitty}
-        hand={hand}
-      />
+      {hand.map((card) => {
+        <Card
+          isOpponent={isOpponent}
+          setKitty={setKitty}
+          kitty={kitty}
+          hand={card}
+        />;
+      })}
     </div>
   );
 };
