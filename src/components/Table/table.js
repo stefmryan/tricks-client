@@ -50,7 +50,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           <Card
             setKitty={setKitty}
             kitty={kitty}
-            hand={trumpCard[0]}
+            card={trumpCard[0]}
             isOpponent={true}
           />
         </div>

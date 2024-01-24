@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../Card/card.module.css";
 
 const Card = ({ isOpponent, setKitty, kitty, card }) => {
-  const [, setVisible] = useState(true);
-
   const cardClicked = (e) => {
     const id = e.target.id;
     setKitty([...kitty, Number(id)]);
-    setVisible((prev) => !prev);
   };
   return (
     <div className={styles.container}>
