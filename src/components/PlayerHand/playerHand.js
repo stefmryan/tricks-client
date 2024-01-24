@@ -16,6 +16,7 @@ const PlayerHand = ({ name, setKitty, kitty, hand }) => {
               setKitty={setKitty}
               kitty={kitty}
               card={card}
+              hand={hand}
             />
           </div>
         );

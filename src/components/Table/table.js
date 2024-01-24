@@ -11,7 +11,9 @@ const Table = ({ playerObjs, deckofCards, round }) => {
   const [opponent1Hand] = useState([deckofCards.pop()]);
   const [oppenent2Hand] = useState([deckofCards.pop()]);
   const [opponent3Hand] = useState([deckofCards.pop()]);
-  const [trumpCard /*setTrumpCard*/] = useState([deckofCards.pop()]);
+  const [trumpCard] = useState([
+    deckofCards.length > 0 ? deckofCards.pop() : null,
+  ]);
   console.log(round);
   console.log(deckofCards.length);
   return (
