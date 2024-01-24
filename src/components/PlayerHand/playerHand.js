@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import Card from "../Card/card";
 import styles from "../PlayerHand/playerHand.module.css";
 
-const PlayerHand = ({ name, setKitty, kitty, hand }) => {
+const PlayerHand = ({
+  name,
+  setKitty,
+  kitty,
+  hand,
+  setPlayer1Hand,
+  setDisplayRoundButton,
+}) => {
   const [isOpponent] = useState(name !== "player");
 
   return (
@@ -17,6 +24,8 @@ const PlayerHand = ({ name, setKitty, kitty, hand }) => {
               kitty={kitty}
               card={card}
               hand={hand}
+              setPlayer1Hand={setPlayer1Hand}
+              setDisplayRoundButton={setDisplayRoundButton}
             />
           </div>
         );

@@ -6,15 +6,19 @@ import Card from "../Card/card";
 const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
-  const [player1Hand] = useState([deckofCards.pop()]);
+  const [displayRoundButton, setDisplayRoundButton] = useState(false);
+  const [player1Hand, setPlayer1Hand] = useState([deckofCards.pop()]);
   const [opponent1Hand] = useState([deckofCards.pop()]);
   const [oppenent2Hand] = useState([deckofCards.pop()]);
   const [opponent3Hand] = useState([deckofCards.pop()]);
   const [trumpCard] = useState([
     deckofCards.length > 0 ? deckofCards.pop() : null,
   ]);
-  console.log(round);
-  console.log(deckofCards.length);
+  const startNewRound = () => {
+    //new round button disappears from DOM
+    setDisplayRoundButton(false);
+    round = round++;
+  };
   return (
     <div className={styles.grid}>
       <div className={styles.grid_item1}>
@@ -70,8 +74,17 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           setKitty={setKitty}
           kitty={kitty}
           hand={player1Hand}
+          setPlayer1Hand={setPlayer1Hand}
+          setDisplayRoundButton={setDisplayRoundButton}
         />
       </div>
+      <button
+        type='button'
+        className={displayRoundButton ? "" : styles.new_round_button}
+        onClick={startNewRound}
+      >
+        New Round?
+      </button>
     </div>
   );
 };

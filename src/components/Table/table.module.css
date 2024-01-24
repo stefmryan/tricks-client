@@ -11,3 +11,7 @@
 #kitty {
   margin: 100px;
 }
+
+.new_round_button {
+  display: none;
+}
