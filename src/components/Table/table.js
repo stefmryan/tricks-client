@@ -7,7 +7,7 @@ import Card from "../Card/card";
 const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
-  const [player1Hand] = useState([deckOfCard[0]]);
+  const [player1Hand] = useState([deckOfCard[0], deckOfCard[1]]);
   const [trumpCard /*setTrumpCard*/] = useState([deckofCards.pop()]);
   console.log(round);
 
@@ -21,14 +21,14 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           hand={player1Hand}
         />
       </div>{" "}
-      {/*<div>
+      <div>
         <PlayerHand
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
           hand={player1Hand}
         />
-  </div>*/}
+      </div>
       <div id={styles.kitty}>
         {kitty.map((card, index) => {
           return (
@@ -52,7 +52,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           />
         </div>
       </div>
-      {/*} <div>
+      <div>
         <PlayerHand
           name={players[3]}
           setKitty={setKitty}
@@ -67,7 +67,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           kitty={kitty}
           hand={player1Hand}
         />
-      </div>*/}
+      </div>
     </div>
   );
 };
