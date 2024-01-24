@@ -3,9 +3,15 @@ import styles from "../Card/card.module.css";
 
 const Card = ({ isOpponent, setKitty, kitty, card, hand }) => {
   const cardClicked = (e) => {
-    console.log(hand);
+    //adding card clicked to kitty
     const id = e.target.id;
-    setKitty([...kitty, id]);
+    const suit = id[0];
+    const face = id.slice(1);
+    const cardForKitty = hand.filter((card) => {
+      return card.suit === suit && card.face === face;
+    });
+    console.log(cardForKitty);
+    setKitty(...kitty, cardForKitty);
   };
   return (
     <div className={styles.container}>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PlayerHand from "../PlayerHand/playerHand";
-import deckOfCard from "../../utils/deckOfCards";
 import styles from "../Table/table.module.css";
 import Card from "../Card/card";
 
@@ -39,8 +38,8 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           return (
             <img
               key={index}
-              id={index}
-              src={`./images/cards/face/${deckOfCard[Number(card)].image}`}
+              id={`${card.suit}${card.face}`}
+              src={`./images/cards/face/${card.image}`}
               alt='face'
               width={150}
               height={200}
