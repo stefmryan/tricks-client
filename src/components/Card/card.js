@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "../Card/card.module.css";
-//import deckOfCard from "../../utils/deckOfCards";
 
 const Card = ({ isOpponent, setKitty, kitty, card }) => {
   const [, setVisible] = useState(true);

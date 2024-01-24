@@ -7,10 +7,13 @@ import Card from "../Card/card";
 const Table = ({ playerObjs, deckofCards, round }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
-  const [player1Hand] = useState([deckOfCard[0], deckOfCard[1]]);
+  const [player1Hand] = useState([deckofCards.pop()]);
+  const [opponent1Hand] = useState([deckofCards.pop()]);
+  const [oppenent2Hand] = useState([deckofCards.pop()]);
+  const [opponent3Hand] = useState([deckofCards.pop()]);
   const [trumpCard /*setTrumpCard*/] = useState([deckofCards.pop()]);
   console.log(round);
-
+  console.log(deckofCards.length);
   return (
     <div className={styles.grid}>
       <div className={styles.grid_item1}>
@@ -18,7 +21,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[1]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={player1Hand}
+          hand={opponent1Hand}
         />
       </div>{" "}
       <div>
@@ -26,7 +29,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={player1Hand}
+          hand={oppenent2Hand}
         />
       </div>
       <div id={styles.kitty}>
@@ -48,7 +51,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
             setKitty={setKitty}
             kitty={kitty}
             hand={trumpCard[0]}
-            isOpponent={false}
+            isOpponent={true}
           />
         </div>
       </div>
@@ -57,7 +60,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
           name={players[3]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={player1Hand}
+          hand={opponent3Hand}
         />
       </div>
       <div className={styles.grid_item1}>
