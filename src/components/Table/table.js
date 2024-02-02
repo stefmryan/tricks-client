@@ -3,7 +3,7 @@ import PlayerHand from "../PlayerHand/playerHand";
 import styles from "../Table/table.module.css";
 import Card from "../Card/card";
 
-const Table = ({ playerObjs, deckofCards, round }) => {
+const Table = ({ playerObjs, deckofCards }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
   const [displayRoundButton, setDisplayRoundButton] = useState(false);
@@ -14,6 +14,7 @@ const Table = ({ playerObjs, deckofCards, round }) => {
   const [trumpCard] = useState([
     deckofCards.length > 0 ? deckofCards.pop() : null,
   ]);
+  const [round /*setRound*/] = useState(2);
   const startNewRound = () => {
     //new round button disappears from DOM
     setDisplayRoundButton(false);

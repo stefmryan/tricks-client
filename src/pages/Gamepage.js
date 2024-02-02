@@ -32,7 +32,6 @@ const GamePage = () => {
               : (players[0] = location.state.players)
           }
           deckofCards={deckofCards}
-          round={round}
         />
       </div>
     </div>
