@@ -13,13 +13,12 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [opponent1Hand, setOpponent1Hand] = useState([deckofCards.pop()]);
   const [opponent2Hand, setOpponent2Hand] = useState([deckofCards.pop()]);
   const [opponent3Hand, setOpponent3Hand] = useState([deckofCards.pop()]);
-  const [trumpCard, setTrumpCard] = useState([
-    deckofCards.length > 0 ? deckofCards.pop() : null,
-  ]);
+  const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
   const [round, setRound] = useState(1);
 
   const dealNewHand = () => {
     //shuffle deck and give cards to player and opponents.
+    console.log(deckofCards);
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
@@ -30,7 +29,7 @@ const Table = ({ playerObjs, deckofCards }) => {
     setPlayer1Hand(playerHand);
     setKitty([])
     if (shuffledDeck.length !== 0) {
-      setTrumpCard([deckofCards.pop()]);
+      setTrumpCard([shuffledDeck.pop()]);
 
     }
 
