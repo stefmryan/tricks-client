@@ -11,7 +11,7 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [displayRoundButton, setDisplayRoundButton] = useState(false);
   const [player1Hand, setPlayer1Hand] = useState([deckofCards.pop()]);
   const [opponent1Hand, setOpponent1Hand] = useState([deckofCards.pop()]);
-  const [oppenent2Hand, setOpponent2Hand] = useState([deckofCards.pop()]);
+  const [opponent2Hand, setOpponent2Hand] = useState([deckofCards.pop()]);
   const [opponent3Hand, setOpponent3Hand] = useState([deckofCards.pop()]);
   const [trumpCard, setTrumpCard] = useState([
     deckofCards.length > 0 ? deckofCards.pop() : null,
@@ -59,7 +59,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={oppenent2Hand}
+          hand={opponent2Hand}
         />
       </div>
       <div id={styles.kitty}>

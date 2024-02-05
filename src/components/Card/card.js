@@ -4,7 +4,7 @@ import styles from "../Card/card.module.css";
 const Card = ({
   isOpponent,
   setKitty,
-  kitty,
+
   card,
   hand,
   setPlayer1Hand,
@@ -19,7 +19,7 @@ const Card = ({
       return card.suit === suit && card.face === face;
     });
     console.log(hand);
-    setKitty(...kitty, cardForKitty);
+    setKitty(kitty => [...kitty, ...cardForKitty]);
 
     //remove card from hand
     const newHand = hand.filter(
