@@ -100,6 +100,8 @@ const Table = ({ playerObjs, deckofCards }) => {
           hand={player1Hand}
           setPlayer1Hand={setPlayer1Hand}
           setDisplayRoundButton={setDisplayRoundButton}
+          opponent2Hand={opponent2Hand}
+          setOpponent2Hand={setOpponent2Hand}
         />
       </div>
       <button

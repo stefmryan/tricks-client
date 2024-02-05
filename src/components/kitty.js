@@ -12,7 +12,9 @@ const Kitty = () => {
   ]);
   return (
     <div>
-      Kitty
+      <strong>
+        Kitty
+      </strong>
       <Card isFront={false} setPlayerHand={setCards} />
     </div>
   );

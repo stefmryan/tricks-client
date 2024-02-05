@@ -4,12 +4,15 @@
   background-color: #00512c;
   justify-content: space-evenly;
 }
+
 .grid_item1 {
   grid-column: 1 / 4;
 }
 
 #kitty {
   margin: 100px;
+  display: flex;
+  flex-direction: row;
 }
 
 .new_round_button {
