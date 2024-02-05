@@ -8,7 +8,6 @@ import { shuffle } from "../utils/gameLogic";
 const GamePage = () => {
   const location = useLocation();
   let [players] = useState([location.state.players]);
-  const [round /*setRound*/] = useState(2);
   const [deckofCards /*setDeckOfCards*/] = useState([...shuffle(deckOfCard)]);
 
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ const GamePage = () => {
       <button type='button' onClick={returnToHomePage}>
         Return to Homepage
       </button>
-      <div className={styles.center}>Round {round}</div>
       <div className={styles.grid_container}>
         <div>placeholder for table</div>
         <Table
