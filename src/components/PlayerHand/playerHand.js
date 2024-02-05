@@ -15,21 +15,23 @@ const PlayerHand = ({
   return (
     <div className={styles.container}>
       {name}
-      {hand.map((card, index) => {
-        return (
-          <div key={index}>
-            <Card
-              isOpponent={isOpponent}
-              setKitty={setKitty}
-              kitty={kitty}
-              card={card}
-              hand={hand}
-              setPlayer1Hand={setPlayer1Hand}
-              setDisplayRoundButton={setDisplayRoundButton}
-            />
-          </div>
-        );
-      })}
+      <div className={styles.card}>
+        {hand.map((card, index) => {
+          return (
+            <div key={index}>
+              <Card
+                isOpponent={isOpponent}
+                setKitty={setKitty}
+                kitty={kitty}
+                card={card}
+                hand={hand}
+                setPlayer1Hand={setPlayer1Hand}
+                setDisplayRoundButton={setDisplayRoundButton}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
