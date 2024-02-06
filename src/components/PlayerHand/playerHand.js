@@ -7,7 +7,8 @@ const PlayerHand = ({
   setKitty,
   kitty,
   hand,
-  setPlayer1Hand,
+  setParticipantsObj,
+  participantsObj,
   setDisplayRoundButton,
   opponent2Hand,
   setOpponent2Hand
@@ -27,7 +28,8 @@ const PlayerHand = ({
                 kitty={kitty}
                 card={card}
                 hand={hand}
-                setPlayer1Hand={setPlayer1Hand}
+                setParticipantsObj={setParticipantsObj}
+                participantsObj={participantsObj}
                 setDisplayRoundButton={setDisplayRoundButton}
                 opponent2Hand={opponent2Hand}
                 setOpponent2Hand={setOpponent2Hand}

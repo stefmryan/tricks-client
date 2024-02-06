@@ -6,7 +6,8 @@ const Card = ({
   setKitty,
   card,
   hand,
-  setPlayer1Hand,
+  setParticipantsObj,
+  participantsObj,
   setDisplayRoundButton,
   opponent2Hand,
   setOpponent2Hand
@@ -24,10 +25,16 @@ const Card = ({
     console.log(hand);
     setKitty(kitty => [...kitty, ...cardForKitty]);
 
-    //remove card from hand
-    const newHand = hand.filter(
-      (card) => card.suit !== suit && card.face !== face
-    );
+    //remove card from hand and update array for player
+    // key in participantsObj
+    const newHand = [];
+
+    hand.forEach((card) => {
+      if (card.suit === suit && card.face !== face || card.suit !== suit) {
+        newHand.push(card);
+      }
+    })
+    setParticipantsObj({ ...participantsObj, player: newHand });
 
     //trigger opponents to place card in kitty and update opponent
     //array so card in kitty is in kitty array and not in opponent array
@@ -40,7 +47,7 @@ const Card = ({
       setKitty(kitty => [...kitty, ...opponent2Hand]);
     }
 
-    setPlayer1Hand(newHand);
+
 
     //trigger button to appear if round is over.
     if (newHand.length === 0) {
