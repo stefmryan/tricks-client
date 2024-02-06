@@ -4,10 +4,10 @@ import styles from "../Card/card.module.css";
 const Card = ({
   isOpponent,
   setKitty,
-
   card,
   hand,
-  setPlayer1Hand,
+  setParticipantsObj,
+  participantsObj,
   setDisplayRoundButton,
 }) => {
   const cardClicked = (e) => {
@@ -26,7 +26,7 @@ const Card = ({
       (card) => card.suit !== suit && card.face !== face
     );
 
-    setPlayer1Hand(newHand);
+    setParticipantsObj({ ...participantsObj, "player": newHand });
 
     //trigger button to appear if round is over.
     if (newHand.length === 0) {
