@@ -9,10 +9,6 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
   const [displayRoundButton, setDisplayRoundButton] = useState(false);
-  //const [player1Hand, setPlayer1Hand] = useState([deckofCards.pop()]);
-  //const [opponent1Hand, setOpponent1Hand] = useState([deckofCards.pop()]);
-  //const [opponent2Hand, setOpponent2Hand] = useState([deckofCards.pop()]);
-  //const [opponent3Hand, setOpponent3Hand] = useState([deckofCards.pop()]);
   const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
   const [round, setRound] = useState(1);
   const [participantsObj, setParticipantsObj] = useState({
@@ -24,19 +20,10 @@ const Table = ({ playerObjs, deckofCards }) => {
 
   const dealNewHand = () => {
     //shuffle deck and give cards to player and opponents.
-    console.log(deckofCards);
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
-    const playerHand = shuffledDeck.splice(0, round + 1)
-    //setOpponent1Hand(shuffledDeck.splice(0, round + 1))
-    //setOpponent2Hand(shuffledDeck.splice(0, round + 1))
-    //setOpponent3Hand(shuffledDeck.splice(0, round + 1))
-    //setPlayer1Hand(playerHand);
-    setParticipantsObj({ ...participantsObj, "player": playerHand })
-    setParticipantsObj({ ...participantsObj, "opponent1": playerHand })
-    setParticipantsObj({ ...participantsObj, "opponent2": playerHand })
-    setParticipantsObj({ ...participantsObj, "opponent3": playerHand })
+    setParticipantsObj({ "player": shuffledDeck.splice(0, round + 1), "opponent1": shuffledDeck.splice(0, round + 1), "opponent2": shuffledDeck.splice(0, round + 1), "opponent3": shuffledDeck.splice(0, round + 1) })
 
     setKitty([])
     if (shuffledDeck.length !== 0) {
