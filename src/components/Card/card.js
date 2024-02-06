@@ -10,7 +10,6 @@ const Card = ({
   participantsObj,
   setDisplayRoundButton,
   opponent2Hand,
-  setOpponent2Hand
 }) => {
   const cardClicked = (e) => {
     console.log("Opponent 2 Hand")
@@ -34,7 +33,7 @@ const Card = ({
         newHand.push(card);
       }
     })
-    setParticipantsObj({ ...participantsObj, player: newHand });
+    setParticipantsObj({ ...participantsObj, player: newHand, opponent2: [] });
 
     //trigger opponents to place card in kitty and update opponent
     //array so card in kitty is in kitty array and not in opponent array
@@ -43,7 +42,7 @@ const Card = ({
       console.log("more than one card in opponent hand")
 
     } else {
-      setOpponent2Hand([]);
+      //setParticipantsObj({ ...participantsObj, opponent2: [] })
       setKitty(kitty => [...kitty, ...opponent2Hand]);
     }
 

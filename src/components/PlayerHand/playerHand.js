@@ -11,7 +11,6 @@ const PlayerHand = ({
   participantsObj,
   setDisplayRoundButton,
   opponent2Hand,
-  setOpponent2Hand
 }) => {
   const [isOpponent] = useState(name !== "player");
 
@@ -32,7 +31,7 @@ const PlayerHand = ({
                 participantsObj={participantsObj}
                 setDisplayRoundButton={setDisplayRoundButton}
                 opponent2Hand={opponent2Hand}
-                setOpponent2Hand={setOpponent2Hand}
+
               />
             </div>
           );
