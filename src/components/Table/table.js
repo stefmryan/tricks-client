@@ -12,10 +12,10 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
   const [round, setRound] = useState(1);
   const [participantsObj, setParticipantsObj] = useState({
-    "player": [deckofCards.pop()],
-    "opponent1": [deckofCards.pop()],
-    "opponent2": [deckofCards.pop()],
-    "opponent3": [deckofCards.pop()]
+    player: [deckofCards.pop()],
+    opponent1: [deckofCards.pop()],
+    opponent2: [deckofCards.pop()],
+    opponent3: [deckofCards.pop()]
   })
 
   const dealNewHand = () => {
@@ -23,7 +23,7 @@ const Table = ({ playerObjs, deckofCards }) => {
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
-    setParticipantsObj({ "player": shuffledDeck.splice(0, round + 1), "opponent1": shuffledDeck.splice(0, round + 1), "opponent2": shuffledDeck.splice(0, round + 1), "opponent3": shuffledDeck.splice(0, round + 1) })
+    setParticipantsObj({ player: shuffledDeck.splice(0, round + 1), opponent1: shuffledDeck.splice(0, round + 1), opponent2: shuffledDeck.splice(0, round + 1), opponent3: shuffledDeck.splice(0, round + 1) })
 
     setKitty([])
     if (shuffledDeck.length !== 0) {

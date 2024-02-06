@@ -26,7 +26,7 @@ const Card = ({
       (card) => card.suit !== suit && card.face !== face
     );
 
-    setParticipantsObj({ ...participantsObj, "player": newHand });
+    setParticipantsObj({ ...participantsObj, player: newHand });
 
     //trigger button to appear if round is over.
     if (newHand.length === 0) {
