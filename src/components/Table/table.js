@@ -99,7 +99,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           setParticipantsObj={setParticipantsObj}
           participantsObj={participantsObj}
           setDisplayRoundButton={setDisplayRoundButton}
-          opponent2Hand={participantsObj.opponent2}
+
         />
       </div>
       <button
