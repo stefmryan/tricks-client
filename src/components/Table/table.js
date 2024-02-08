@@ -109,8 +109,7 @@ const Table = ({ playerObjs, deckofCards }) => {
         <div>
           <strong>TRUMP CARD</strong>
           <Card
-            setKitty={setKitty}
-            kitty={kitty}
+
             card={trumpCard[0]}
             isOpponent={true}
           />
