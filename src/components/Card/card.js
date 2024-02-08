@@ -9,7 +9,7 @@ const Card = ({
   setParticipantsObj,
   participantsObj,
   setDisplayRoundButton,
-  kitty
+  //kitty
   //opponent2Hand,
 }) => {
   const cardClicked = (e) => {
@@ -31,12 +31,6 @@ const Card = ({
     });
 
     const cardsForKitty = [...cardForKitty, ...opp1Card, ...opp2Card, ...opp3Card]
-    kitty.concat(cardForKitty)
-    kitty.concat(opp1Card)
-    kitty.concat(opp2Card)
-    kitty.concat(opp3Card)
-
-    console.log(kitty)
     setKitty(cardsForKitty);
 
     //remove card from hand and update array for player
@@ -48,7 +42,30 @@ const Card = ({
         newHand.push(card);
       }
     })
-    setParticipantsObj({ ...participantsObj, player: newHand, opponent2: [] });
+
+    const opp1Hand = [];
+
+    participantsObj.opponent1.forEach((card) => {
+      if (card.suit === opp1Card.suit && card.face !== opp1Card || card.suit !== opp1Card.suit) {
+        opp1Hand.push(card);
+      }
+    })
+
+    const opp2Hand = []
+    participantsObj.opponent2.forEach((card) => {
+      if (card.suit === opp2Card.suit && card.face !== opp2Card.face || card.suit !== opp2Card.suit) {
+        opp2Hand.push(card);
+      }
+    })
+
+    const opp3Hand = []
+
+    participantsObj.opponent3.forEach((card) => {
+      if (card.suit === opp3Card.suit && card.face !== opp3Card.face || card.suit !== opp3Card.suit) {
+        opp3Hand.push(card);
+      }
+    })
+    setParticipantsObj({ ...participantsObj, player: newHand, opponent1: opp1Hand, opponent2: opp2Hand, opponent3: opp3Hand });
 
     //trigger opponents to place card in kitty and update opponent
     //array so card in kitty is in kitty array and not in opponent array

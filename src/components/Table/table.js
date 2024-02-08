@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PlayerHand from "../PlayerHand/playerHand";
 import styles from "../Table/table.module.css";
 import Card from "../Card/card";
@@ -17,6 +17,12 @@ const Table = ({ playerObjs, deckofCards }) => {
     opponent2: [deckofCards.pop()],
     opponent3: [deckofCards.pop()]
   })
+
+  useEffect(() => {
+    if (kitty.length === 4) {
+      console.log("define kitty condition");
+    }
+  }, [kitty])
 
   const dealNewHand = () => {
     //shuffle deck and give cards to player and opponents.
