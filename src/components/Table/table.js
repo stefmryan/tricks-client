@@ -12,18 +12,20 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
   const [round, setRound] = useState(1);
   const [participantsObj, setParticipantsObj] = useState({
-    player: [deckofCards.pop()],
-    opponent1: [deckofCards.pop()],
-    opponent2: [deckofCards.pop()],
-    opponent3: [deckofCards.pop()]
+    player: {
+      hand: [deckofCards.pop()], cardPlayed: {}
+    },
+    opponent1: { hand: [deckofCards.pop()], cardPlayed: {} },
+    opponent2: { hand: [deckofCards.pop()], cardPlayed: {} },
+    opponent3: { hand: [deckofCards.pop()], cardPlayed: {} }
   })
   const [winningCard, setWinningCard] = useState()
 
   useEffect(() => {
     //determining the winning card in the Kitty
     if (kitty.length === 4) {
-      console.log("Cards in Kitty")
-      console.log(kitty);
+      console.log("Player Obj")
+      console.log(participantsObj.player);
       const arr = []
       if (trumpCard.length !== 0) {
         kitty.forEach(card => {
@@ -51,7 +53,7 @@ const Table = ({ playerObjs, deckofCards }) => {
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
-    setParticipantsObj({ player: shuffledDeck.splice(0, round + 1), opponent1: shuffledDeck.splice(0, round + 1), opponent2: shuffledDeck.splice(0, round + 1), opponent3: shuffledDeck.splice(0, round + 1) })
+    setParticipantsObj({ player: { hand: shuffledDeck.splice(0, round + 1) }, opponent1: { hand: shuffledDeck.splice(0, round + 1) }, opponent2: { hand: shuffledDeck.splice(0, round + 1) }, opponent3: { hand: shuffledDeck.splice(0, round + 1) } })
 
     setKitty([])
     if (shuffledDeck.length !== 0) {
@@ -76,7 +78,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           name={players[1]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent1}
+          hand={participantsObj.opponent1.hand}
         />
       </div>{" "}
       <div>
@@ -84,7 +86,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           name={players[2]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent2}
+          hand={participantsObj.opponent2.hand}
         />
       </div>
       <div id={styles.kitty}>
@@ -124,7 +126,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           name={players[3]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent3}
+          hand={participantsObj.opponent3.hand}
         />
       </div>
       <div className={styles.grid_item1}>
@@ -132,7 +134,7 @@ const Table = ({ playerObjs, deckofCards }) => {
           name={players[0]}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.player}
+          hand={participantsObj.player.hand}
           setParticipantsObj={setParticipantsObj}
           participantsObj={participantsObj}
           setDisplayRoundButton={setDisplayRoundButton}

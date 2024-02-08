@@ -5,7 +5,6 @@ import styles from "../PlayerHand/playerHand.module.css";
 const PlayerHand = ({
   name,
   setKitty,
-
   hand,
   setParticipantsObj,
   participantsObj,
