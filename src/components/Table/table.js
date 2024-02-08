@@ -4,6 +4,7 @@ import styles from "../Table/table.module.css";
 import Card from "../Card/card";
 import deckOfCard from "../../utils/deckOfCards";
 import { shuffle } from "../../utils/gameLogic";
+import GameModal from "../GameModal/gameModal";
 
 const Table = ({ playerObjs, deckofCards }) => {
   const [players] = useState(playerObjs);
@@ -73,6 +74,7 @@ const Table = ({ playerObjs, deckofCards }) => {
   return (
     <div className={styles.grid}>
       <div className={styles.center}>Round {round}</div>
+      <GameModal />
       <div className={styles.grid_item1}>
         <PlayerHand
           name={players[1]}
