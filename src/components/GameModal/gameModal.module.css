@@ -1,0 +1,5 @@
+#kitty {
+    margin: 100px;
+    display: flex;
+    flex-direction: row;
+}

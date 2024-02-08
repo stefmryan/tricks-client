@@ -76,7 +76,7 @@ const Table = ({ playerObjs, deckofCards }) => {
   return (
     <div className={styles.grid}>
       <div className={styles.center}>Round {round}</div>
-      <GameModal show={show} setShow={setShow} winningCard={winningCard} />
+      <GameModal show={show} setShow={setShow} winningCard={winningCard} kitty={kitty} />
       <div className={styles.grid_item1}>
         <PlayerHand
           name={players[1]}
