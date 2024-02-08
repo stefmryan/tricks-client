@@ -17,10 +17,32 @@ const Table = ({ playerObjs, deckofCards }) => {
     opponent2: [deckofCards.pop()],
     opponent3: [deckofCards.pop()]
   })
+  const [winningCard, setWinningCard] = useState()
 
   useEffect(() => {
+    //determining the winning card in the Kitty
     if (kitty.length === 4) {
-      console.log("define kitty condition");
+      console.log("Cards in Kitty")
+      console.log(kitty);
+      const arr = []
+      if (trumpCard.length !== 0) {
+        kitty.forEach(card => {
+          if (card.suit === trumpCard[0].suit) {
+            arr.push(card);
+          }
+        })
+      }
+
+      if (arr.length === 1) {
+        setWinningCard(arr[0]);
+      }
+      if (arr.length > 1) {
+        setWinningCard(arr.reduce((a, b) => a.value > b.value ? a : b));
+      }
+      if (arr.length === 0) {
+        const winningCard = kitty.reduce((a, b) => a.value > b.value ? a : b);
+        setWinningCard(winningCard);
+      }
     }
   }, [kitty])
 
@@ -84,6 +106,15 @@ const Table = ({ playerObjs, deckofCards }) => {
             setKitty={setKitty}
             kitty={kitty}
             card={trumpCard[0]}
+            isOpponent={true}
+          />
+        </div>
+        <div>
+          <strong>WINNING CARD</strong>
+          <Card
+            setKitty={setKitty}
+            kitty={kitty}
+            card={winningCard}
             isOpponent={true}
           />
         </div>

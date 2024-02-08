@@ -5,12 +5,12 @@ import styles from "../PlayerHand/playerHand.module.css";
 const PlayerHand = ({
   name,
   setKitty,
-  kitty,
+
   hand,
   setParticipantsObj,
   participantsObj,
   setDisplayRoundButton,
-  opponent2Hand,
+
 }) => {
   const [isOpponent] = useState(name !== "player");
 
@@ -24,13 +24,13 @@ const PlayerHand = ({
               <Card
                 isOpponent={isOpponent}
                 setKitty={setKitty}
-                kitty={kitty}
+
                 card={card}
                 hand={hand}
                 setParticipantsObj={setParticipantsObj}
                 participantsObj={participantsObj}
                 setDisplayRoundButton={setDisplayRoundButton}
-                opponent2Hand={opponent2Hand}
+
 
               />
             </div>

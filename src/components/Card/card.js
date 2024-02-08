@@ -9,8 +9,7 @@ const Card = ({
   setParticipantsObj,
   participantsObj,
   setDisplayRoundButton,
-  //kitty
-  //opponent2Hand,
+
 }) => {
   const cardClicked = (e) => {
 
