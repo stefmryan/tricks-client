@@ -13,7 +13,7 @@ const Table = ({ playerObjs, deckofCards }) => {
   const [round, setRound] = useState(1);
   const [participantsObj, setParticipantsObj] = useState({
     player: {
-      hand: [deckofCards.pop()], cardPlayed: {}
+      hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0
     },
     opponent1: { hand: [deckofCards.pop()], cardPlayed: {} },
     opponent2: { hand: [deckofCards.pop()], cardPlayed: {} },
