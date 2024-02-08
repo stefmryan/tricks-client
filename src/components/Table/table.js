@@ -21,6 +21,7 @@ const Table = ({ playerObjs, deckofCards }) => {
     opponent3: { hand: [deckofCards.pop()], cardPlayed: {} }
   })
   const [winningCard, setWinningCard] = useState()
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     //determining the winning card in the Kitty
@@ -46,6 +47,7 @@ const Table = ({ playerObjs, deckofCards }) => {
         const winningCard = kitty.reduce((a, b) => a.value > b.value ? a : b);
         setWinningCard(winningCard);
       }
+      setShow(true);
     }
   }, [kitty])
 
@@ -74,7 +76,7 @@ const Table = ({ playerObjs, deckofCards }) => {
   return (
     <div className={styles.grid}>
       <div className={styles.center}>Round {round}</div>
-      <GameModal />
+      <GameModal show={show} setShow={setShow} winningCard={winningCard} />
       <div className={styles.grid_item1}>
         <PlayerHand
           name={players[1]}
@@ -113,7 +115,7 @@ const Table = ({ playerObjs, deckofCards }) => {
             isOpponent={true}
           />
         </div>
-        <div>
+        {/* <div>
           <strong>WINNING CARD</strong>
           <Card
             setKitty={setKitty}
@@ -121,7 +123,7 @@ const Table = ({ playerObjs, deckofCards }) => {
             card={winningCard}
             isOpponent={true}
           />
-        </div>
+        </div> */}
       </div>
       <div>
         <PlayerHand
