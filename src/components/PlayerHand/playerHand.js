@@ -10,6 +10,8 @@ const PlayerHand = ({
   participantsArr,
   setDisplayRoundButton,
 
+  setCardsInKitty
+
 }) => {
   const [isOpponent] = useState(name !== "player");
 
@@ -29,6 +31,7 @@ const PlayerHand = ({
                 setParticipantsArr={setParticipantsArr}
                 participantsArr={participantsArr}
                 setDisplayRoundButton={setDisplayRoundButton}
+                setCardsInKitty={setCardsInKitty}
 
 
               />

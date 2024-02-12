@@ -7,7 +7,6 @@ import { shuffle } from "../../utils/gameLogic";
 import GameModal from "../GameModal/gameModal"
 
 const Table = ({ deckofCards }) => {
-  //const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
   const [displayRoundButton, setDisplayRoundButton] = useState(false);
   const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
@@ -21,12 +20,15 @@ const Table = ({ deckofCards }) => {
   ])
   const [winningCard, setWinningCard] = useState()
   const [show, setShow] = useState(false);
+  const [cardsInKitty, setCardsInKitty] = useState(0)
 
   useEffect(() => {
-    //determining the winning card in the Kitty
-    if (kitty.length === 4) {
-      console.log("Player Obj")
-      console.log(participantsArr[0]);
+    //determining the winning card in the 
+    if (cardsInKitty === 4) {
+      console.log("4 cards in kitty");
+    }
+
+    if (cardsInKitty === 4) {
       const arr = []
       if (trumpCard.length !== 0) {
         kitty.forEach(card => {
@@ -35,20 +37,29 @@ const Table = ({ deckofCards }) => {
           }
         })
       }
+      let winningCard = null;
 
       if (arr.length === 1) {
-        setWinningCard(arr[0]);
+        winningCard = arr[0];
       }
       if (arr.length > 1) {
-        setWinningCard(arr.reduce((a, b) => a.value > b.value ? a : b));
+        winningCard = arr.reduce((a, b) => a.value > b.value ? a : b);
       }
       if (arr.length === 0) {
-        const winningCard = kitty.reduce((a, b) => a.value > b.value ? a : b);
-        setWinningCard(winningCard);
+        winningCard = kitty.reduce((a, b) => a.value > b.value ? a : b);
+        //setWinningCard(winningCard);
       }
+      setWinningCard(winningCard);
+
+      participantsArr.map(participant => {
+        if (participant.cardPlayed[0] === winningCard) {
+          participant.winningHands = participant.winningHands + 1;
+        }
+      })
       setShow(true);
+      setCardsInKitty(0);
     }
-  }, [kitty])
+  }, [cardsInKitty])
 
   const dealNewHand = () => {
     //shuffle deck and give cards to player and opponents.
@@ -124,15 +135,6 @@ const Table = ({ deckofCards }) => {
             isOpponent={true}
           />
         </div>
-        {/* <div>
-          <strong>WINNING CARD</strong>
-          <Card
-            setKitty={setKitty}
-            kitty={kitty}
-            card={winningCard}
-            isOpponent={true}
-          />
-        </div> */}
       </div>
       <div>
         <PlayerHand
@@ -151,6 +153,7 @@ const Table = ({ deckofCards }) => {
           setParticipantsArr={setParticipantsArr}
           participantsArr={participantsArr}
           setDisplayRoundButton={setDisplayRoundButton}
+          setCardsInKitty={setCardsInKitty}
 
         />
       </div>

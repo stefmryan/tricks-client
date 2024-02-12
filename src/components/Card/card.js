@@ -9,6 +9,7 @@ const Card = ({
   setParticipantsArr,
   participantsArr,
   setDisplayRoundButton,
+  setCardsInKitty
 
 }) => {
   const cardClicked = (e) => {
@@ -35,6 +36,7 @@ const Card = ({
 
     const cardsForKitty = [...playerCard, ...opp1Card, ...opp2Card, ...opp3Card]
     setKitty(cardsForKitty);
+    setCardsInKitty(4)
 
     //remove card from hand and update array for player
     // key in participantsArr
