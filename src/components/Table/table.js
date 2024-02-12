@@ -6,20 +6,19 @@ import deckOfCard from "../../utils/deckOfCards";
 import { shuffle } from "../../utils/gameLogic";
 import GameModal from "../GameModal/gameModal";
 
-const Table = ({ playerObjs, deckofCards }) => {
-  const [players] = useState(playerObjs);
+const Table = ({ deckofCards }) => {
+  //const [players] = useState(playerObjs);
   const [kitty, setKitty] = useState([]);
   const [displayRoundButton, setDisplayRoundButton] = useState(false);
   const [trumpCard, setTrumpCard] = useState([deckofCards.pop()]);
   const [round, setRound] = useState(1);
-  const [participantsObj, setParticipantsObj] = useState({
-    player: {
-      hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0
-    },
-    opponent1: { hand: [deckofCards.pop()], cardPlayed: {} },
-    opponent2: { hand: [deckofCards.pop()], cardPlayed: {} },
-    opponent3: { hand: [deckofCards.pop()], cardPlayed: {} }
-  })
+  const [participantsArr, setParticipantsArr] = useState([
+
+    { name: "player", hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0 },
+    { name: "opponent1", hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0 },
+    { name: "opponent2", hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0 },
+    { name: "opponent3", hand: [deckofCards.pop()], cardPlayed: {}, winningHands: 0 }
+  ])
   const [winningCard, setWinningCard] = useState()
   const [show, setShow] = useState(false);
 
@@ -27,7 +26,7 @@ const Table = ({ playerObjs, deckofCards }) => {
     //determining the winning card in the Kitty
     if (kitty.length === 4) {
       console.log("Player Obj")
-      console.log(participantsObj.player);
+      console.log(participantsArr[0]);
       const arr = []
       if (trumpCard.length !== 0) {
         kitty.forEach(card => {
@@ -56,7 +55,18 @@ const Table = ({ playerObjs, deckofCards }) => {
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
-    setParticipantsObj({ player: { hand: shuffledDeck.splice(0, round + 1) }, opponent1: { hand: shuffledDeck.splice(0, round + 1) }, opponent2: { hand: shuffledDeck.splice(0, round + 1) }, opponent3: { hand: shuffledDeck.splice(0, round + 1) } })
+
+    const player = participantsArr[0]
+    const opp1 = participantsArr[1]
+    const opp2 = participantsArr[2]
+    const opp3 = participantsArr[3]
+
+    player.hand = shuffledDeck.splice(0, round + 1)
+    opp2.hand = shuffledDeck.splice(0, round + 1)
+    opp1.hand = shuffledDeck.splice(0, round + 1)
+    opp3.hand = shuffledDeck.splice(0, round + 1)
+
+    setParticipantsArr([player, opp1, opp2, opp3])
 
     setKitty([])
     if (shuffledDeck.length !== 0) {
@@ -76,21 +86,21 @@ const Table = ({ playerObjs, deckofCards }) => {
   return (
     <div className={styles.grid}>
       <div className={styles.center}>Round {round}</div>
-      <GameModal show={show} setShow={setShow} winningCard={winningCard} kitty={kitty} />
+      <GameModal show={show} setShow={setShow} winningCard={winningCard} participantsArr={participantsArr} />
       <div className={styles.grid_item1}>
         <PlayerHand
-          name={players[1]}
+          name={participantsArr[1].name}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent1.hand}
+          hand={participantsArr[1].hand}
         />
       </div>{" "}
       <div>
         <PlayerHand
-          name={players[2]}
+          name={participantsArr[2].name}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent2.hand}
+          hand={participantsArr[2].hand}
         />
       </div>
       <div id={styles.kitty}>
@@ -126,20 +136,20 @@ const Table = ({ playerObjs, deckofCards }) => {
       </div>
       <div>
         <PlayerHand
-          name={players[3]}
+          name={participantsArr[3].name}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.opponent3.hand}
+          hand={participantsArr[3].hand}
         />
       </div>
       <div className={styles.grid_item1}>
         <PlayerHand
-          name={players[0]}
+          name={participantsArr[0].name}
           setKitty={setKitty}
           kitty={kitty}
-          hand={participantsObj.player.hand}
-          setParticipantsObj={setParticipantsObj}
-          participantsObj={participantsObj}
+          hand={participantsArr[0].hand}
+          setParticipantsArr={setParticipantsArr}
+          participantsArr={participantsArr}
           setDisplayRoundButton={setDisplayRoundButton}
 
         />

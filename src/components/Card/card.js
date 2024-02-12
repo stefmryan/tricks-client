@@ -6,25 +6,25 @@ const Card = ({
   setKitty,
   card,
   hand,
-  setParticipantsObj,
-  participantsObj,
+  setParticipantsArr,
+  participantsArr,
   setDisplayRoundButton,
 
 }) => {
   const cardClicked = (e) => {
-
+    console.log("card clicked");
     const id = e.target.id;
     const suit = id[0];
     const face = id.slice(1);
 
-    const opp1Card = participantsObj.opponent1.hand.splice(Math.floor(Math.random() * participantsObj.opponent1.length), 1);
-    const opp2Card = participantsObj.opponent2.hand.splice(Math.floor(Math.random() * participantsObj.opponent2.length), 1);
-    const opp3Card = participantsObj.opponent3.hand.splice(Math.floor(Math.random() * participantsObj.opponent3.length), 1);
+    const opp1Card = participantsArr[1].hand.splice(Math.floor(Math.random() * participantsArr[1].hand.length), 1);
+    const opp2Card = participantsArr[2].hand.splice(Math.floor(Math.random() * participantsArr[2].hand.length), 1);
+    const opp3Card = participantsArr[3].hand.splice(Math.floor(Math.random() * participantsArr[3].hand.length), 1);
 
-    const playerObj = { ...participantsObj.player }
-    const opp1Obj = { ...participantsObj.opponent1 }
-    const opp2Obj = { ...participantsObj.opponent2 }
-    const opp3Obj = { ...participantsObj.opponent3 }
+    const playerObj = { ...participantsArr[0] }
+    const opp1Obj = { ...participantsArr[1] }
+    const opp2Obj = { ...participantsArr[2] }
+    const opp3Obj = { ...participantsArr[3] }
 
 
     //adding card clicked to kitty
@@ -37,7 +37,7 @@ const Card = ({
     setKitty(cardsForKitty);
 
     //remove card from hand and update array for player
-    // key in participantsObj
+    // key in participantsArr
     const newHand = [];
 
     hand.forEach((card) => {
@@ -49,7 +49,7 @@ const Card = ({
     playerObj.hand = newHand;
     const opp1Hand = [];
 
-    participantsObj.opponent1.hand.forEach((card) => {
+    participantsArr[1].hand.forEach((card) => {
       if (card.suit === opp1Card.suit && card.face !== opp1Card || card.suit !== opp1Card.suit) {
         opp1Hand.push(card);
       }
@@ -58,7 +58,7 @@ const Card = ({
     opp1Obj.cardPlayed = opp1Card;
 
     const opp2Hand = []
-    participantsObj.opponent2.hand.forEach((card) => {
+    participantsArr[2].hand.forEach((card) => {
       if (card.suit === opp2Card.suit && card.face !== opp2Card.face || card.suit !== opp2Card.suit) {
         opp2Hand.push(card);
       }
@@ -68,14 +68,14 @@ const Card = ({
 
     const opp3Hand = []
 
-    participantsObj.opponent3.hand.forEach((card) => {
+    participantsArr[3].hand.forEach((card) => {
       if (card.suit === opp3Card.suit && card.face !== opp3Card.face || card.suit !== opp3Card.suit) {
         opp3Hand.push(card);
       }
     })
     opp3Obj.hand = opp3Hand;
     opp3Obj.cardPlayed = opp3Card;
-    setParticipantsObj({ ...participantsObj, player: playerObj, opponent1: opp1Obj, opponent2: opp2Obj, opponent3: opp3Obj });
+    setParticipantsArr([playerObj, opp1Obj, opp2Obj, opp3Obj]);
 
     //trigger button to appear if round is over.
     if (newHand.length === 0) {

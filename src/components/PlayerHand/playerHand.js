@@ -6,8 +6,8 @@ const PlayerHand = ({
   name,
   setKitty,
   hand,
-  setParticipantsObj,
-  participantsObj,
+  setParticipantsArr,
+  participantsArr,
   setDisplayRoundButton,
 
 }) => {
@@ -26,8 +26,8 @@ const PlayerHand = ({
 
                 card={card}
                 hand={hand}
-                setParticipantsObj={setParticipantsObj}
-                participantsObj={participantsObj}
+                setParticipantsArr={setParticipantsArr}
+                participantsArr={participantsArr}
                 setDisplayRoundButton={setDisplayRoundButton}
 
 

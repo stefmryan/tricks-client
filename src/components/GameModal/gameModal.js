@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import React from 'react';
 import Card from '../Card/card';
 //import styles from '../GameModal/gameModal.module.css'
-const GameModal = ({ show, setShow, winningCard, kitty }) => {
+const GameModal = ({ show, setShow, winningCard, participantsArr }) => {
 
 
 
@@ -23,16 +23,18 @@ const GameModal = ({ show, setShow, winningCard, kitty }) => {
                 <Modal.Body>
                     <p>Cards Played</p>
                     <div className="d-flex flex-row">
-                        {kitty.map((card, index) => {
+                        {participantsArr.map((participant, index) => {
                             return (
-                                <img
-                                    key={index}
-                                    id={`${card.suit}${card.face}`}
-                                    src={`./images/cards/face/${card.image}`}
-                                    alt='face'
-                                    width={150}
-                                    height={200}
-                                />
+                                <div key={index}>{participant.name}
+                                    <img
+                                        key={index}
+                                        id={`${participant.cardPlayed[0] !== undefined ? participant.cardPlayed[0].suit : null}${participant.cardPlayed[0] !== undefined ? participant.cardPlayed[0].face : null}`}
+                                        src={`./images/cards/face/${participant.cardPlayed[0] !== undefined ? participant.cardPlayed[0].image : null}`}
+                                        alt='face'
+                                        width={150}
+                                        height={200}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
