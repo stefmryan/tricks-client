@@ -4,7 +4,7 @@ import styles from "../Table/table.module.css";
 import Card from "../Card/card";
 import deckOfCard from "../../utils/deckOfCards";
 import { shuffle } from "../../utils/gameLogic";
-import GameModal from "../GameModal/gameModal";
+import GameModal from "../GameModal/gameModal"
 
 const Table = ({ deckofCards }) => {
   //const [players] = useState(playerObjs);
