@@ -25,12 +25,29 @@ const Table = ({ deckofCards }) => {
   const [turnOrder, setTurnOrder] = useState(["player", "opponent1", "opponent2", "opponent3"])
   const [currentCard, setCurrentCard] = useState()
 
+  useEffect(() => {
+    let index = 0
+    if (turnOrder[0] !== "player") {
+      index = turnOrder.indexOf("player");
+      const spliceArr = turnOrder.splice(0, index);
+
+      console.log("spliced array")
+      console.log(spliceArr)
+      console.log("sliced array")
+      console.log(turnOrder)
+
+      spliceArr.map((opp) => {
+        setTimeout(() => {
+          cardPlayedByOpponent(opp)
+        }, 5000)
+      })
+    }
+  }, [turnOrder])
 
   useEffect(() => {
     //determining the winning card in the kitty 
     console.log(currentCard)
     if (cardsInKitty === 4) {
-      console.log(participantsArr);
       const arr = []
       if (trumpCard.length !== 0) {
         kitty.forEach(card => {
@@ -102,6 +119,10 @@ const Table = ({ deckofCards }) => {
 
     }
 
+  }
+
+  const cardPlayedByOpponent = (opp) => {
+    console.log(opp)
   }
   const startNewRound = () => {
     //new round button disappears from DOM
