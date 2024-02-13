@@ -25,15 +25,12 @@ const PlayerHand = ({
               <Card
                 isOpponent={isOpponent}
                 setKitty={setKitty}
-
                 card={card}
                 hand={hand}
                 setParticipantsArr={setParticipantsArr}
                 participantsArr={participantsArr}
                 setDisplayRoundButton={setDisplayRoundButton}
                 setCardsInKitty={setCardsInKitty}
-
-
               />
             </div>
           );

@@ -23,12 +23,9 @@ const Table = ({ deckofCards }) => {
   const [cardsInKitty, setCardsInKitty] = useState(0)
 
   useEffect(() => {
-    //determining the winning card in the 
+    //determining the winning card in the kitty 
     if (cardsInKitty === 4) {
-      console.log("4 cards in kitty");
-    }
-
-    if (cardsInKitty === 4) {
+      console.log(participantsArr);
       const arr = []
       if (trumpCard.length !== 0) {
         kitty.forEach(card => {
@@ -51,6 +48,9 @@ const Table = ({ deckofCards }) => {
       }
       setWinningCard(winningCard);
 
+      //looping through participantsArr to match winningcard with appropriate obj.
+      //update appropriate obj key winningHands to keep track of how many hands
+      //appropriate obj won.
       participantsArr.map(participant => {
         if (participant.cardPlayed[0] === winningCard) {
           participant.winningHands = participant.winningHands + 1;
@@ -63,6 +63,7 @@ const Table = ({ deckofCards }) => {
 
   const dealNewHand = () => {
     //shuffle deck and give cards to player and opponents.
+    //update winningHands key to 0
     //Set new Trump card if able
     console.log("in dealNewHand");
     const shuffledDeck = [...shuffle(deckOfCard)]
@@ -76,6 +77,11 @@ const Table = ({ deckofCards }) => {
     opp2.hand = shuffledDeck.splice(0, round + 1)
     opp1.hand = shuffledDeck.splice(0, round + 1)
     opp3.hand = shuffledDeck.splice(0, round + 1)
+
+    player.winningHands = 0;
+    opp1.winningHands = 0;
+    opp2.winningHands = 0
+    opp3.winningHands = 0;
 
     setParticipantsArr([player, opp1, opp2, opp3])
 
@@ -115,26 +121,14 @@ const Table = ({ deckofCards }) => {
         />
       </div>
       <div id={styles.kitty}>
-        {kitty.map((card, index) => {
-          return (
-            <img
-              key={index}
-              id={`${card.suit}${card.face}`}
-              src={`./images/cards/face/${card.image}`}
-              alt='face'
-              width={150}
-              height={200}
-            />
-          );
-        })}
-        <div>
-          <strong>TRUMP CARD</strong>
-          <Card
 
-            card={trumpCard[0]}
-            isOpponent={true}
-          />
-        </div>
+        <strong>TRUMP CARD</strong>
+        <Card
+
+          card={trumpCard[0]}
+          isOpponent={true}
+        />
+
       </div>
       <div>
         <PlayerHand
