@@ -23,10 +23,12 @@ const Table = ({ deckofCards }) => {
   const [cardsInKitty, setCardsInKitty] = useState(0)
 
   const [turnOrder, setTurnOrder] = useState(["player", "opponent1", "opponent2", "opponent3"])
+  const [currentCard, setCurrentCard] = useState()
 
 
   useEffect(() => {
     //determining the winning card in the kitty 
+    console.log(currentCard)
     if (cardsInKitty === 4) {
       console.log(participantsArr);
       const arr = []
@@ -60,7 +62,6 @@ const Table = ({ deckofCards }) => {
           const index = participantsArr.indexOf(participant);
           //rearranging turnOrder to prompt which participant begins
           //the next hand
-
           const newTurnOrder = turnOrder.slice(index).concat(turnOrder.slice(0, index))
           setTurnOrder(newTurnOrder);
         }
@@ -132,7 +133,20 @@ const Table = ({ deckofCards }) => {
         />
       </div>
       <div id={styles.kitty}>
+        <strong>Kitty</strong>
 
+        {kitty.map((card, index) => {
+          return (
+            <img
+              key={index}
+              id={`${card.suit}${card.face}`}
+              src={`./images/cards/face/${card.image}`}
+              alt='face'
+              width={150}
+              height={200}
+            />
+          );
+        })}
         <strong>TRUMP CARD</strong>
         <Card
 
@@ -159,6 +173,7 @@ const Table = ({ deckofCards }) => {
           participantsArr={participantsArr}
           setDisplayRoundButton={setDisplayRoundButton}
           setCardsInKitty={setCardsInKitty}
+          setCurrentCard={setCurrentCard}
 
         />
       </div>

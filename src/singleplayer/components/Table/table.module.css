@@ -12,7 +12,7 @@
 #kitty {
   margin: 100px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .new_round_button {

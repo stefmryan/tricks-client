@@ -9,7 +9,8 @@ const Card = ({
   setParticipantsArr,
   participantsArr,
   setDisplayRoundButton,
-  setCardsInKitty
+  setCardsInKitty,
+  setCurrentCard
 
 }) => {
   const cardClicked = (e) => {
@@ -17,6 +18,7 @@ const Card = ({
     const id = e.target.id;
     const suit = id[0];
     const face = id.slice(1);
+
 
     const opp1Card = participantsArr[1].hand.splice(Math.floor(Math.random() * participantsArr[1].hand.length), 1);
     const opp2Card = participantsArr[2].hand.splice(Math.floor(Math.random() * participantsArr[2].hand.length), 1);
@@ -33,6 +35,8 @@ const Card = ({
       return card.suit === suit && card.face === face;
     });
     playerObj.cardPlayed = playerCard;
+
+    setCurrentCard(playerCard[0]);
 
     const cardsForKitty = [...playerCard, ...opp1Card, ...opp2Card, ...opp3Card]
     setKitty(cardsForKitty);

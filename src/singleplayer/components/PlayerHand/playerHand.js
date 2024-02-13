@@ -9,7 +9,7 @@ const PlayerHand = ({
   setParticipantsArr,
   participantsArr,
   setDisplayRoundButton,
-
+  setCurrentCard,
   setCardsInKitty
 
 }) => {
@@ -31,6 +31,7 @@ const PlayerHand = ({
                 participantsArr={participantsArr}
                 setDisplayRoundButton={setDisplayRoundButton}
                 setCardsInKitty={setCardsInKitty}
+                setCurrentCard={setCurrentCard}
               />
             </div>
           );
