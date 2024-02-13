@@ -22,6 +22,8 @@ const Table = ({ deckofCards }) => {
   const [show, setShow] = useState(false);
   const [cardsInKitty, setCardsInKitty] = useState(0)
 
+  const [turnOrder, setTurnOrder] = useState(["player", "opponent1", "opponent2", "opponent3"])
+
 
   useEffect(() => {
     //determining the winning card in the kitty 
@@ -55,10 +57,17 @@ const Table = ({ deckofCards }) => {
       participantsArr.map(participant => {
         if (participant.cardPlayed[0] === winningCard) {
           participant.winningHands = participant.winningHands + 1;
+          const index = participantsArr.indexOf(participant);
+          //rearranging turnOrder to prompt which participant begins
+          //the next hand
+
+          const newTurnOrder = turnOrder.slice(index).concat(turnOrder.slice(0, index))
+          setTurnOrder(newTurnOrder);
         }
       })
       setShow(true);
       setCardsInKitty(0);
+
     }
   }, [cardsInKitty])
 
@@ -98,6 +107,7 @@ const Table = ({ deckofCards }) => {
     setDisplayRoundButton(false);
     setRound(round + 1)
     dealNewHand();
+    console.log(turnOrder)
   }
 
 
