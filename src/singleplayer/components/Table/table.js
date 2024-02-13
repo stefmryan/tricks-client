@@ -22,6 +22,7 @@ const Table = ({ deckofCards }) => {
   const [show, setShow] = useState(false);
   const [cardsInKitty, setCardsInKitty] = useState(0)
 
+
   useEffect(() => {
     //determining the winning card in the kitty 
     if (cardsInKitty === 4) {
