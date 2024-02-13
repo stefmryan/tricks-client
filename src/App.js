@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
+import Homepage from "../src/singleplayer/pages/Homepage";
 //import Gamepage from "./pages/Gamepage";
-import Table from "./components/Table/table";
-import deckOfCard from "../src/utils/deckOfCards";
-import { shuffle } from "../src/utils/gameLogic";
+import Table from "../src/singleplayer/components/Table/table";
+import deckOfCard from "../src/singleplayer/utils/deckOfCards";
+import { shuffle } from "../src/singleplayer/utils/gameLogic";
 
 function App() {
   const [deckofCards] = useState([...shuffle(deckOfCard)]);
